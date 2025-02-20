@@ -22,11 +22,26 @@ class RuleInserStudent extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:255|string',
+            'age' => 'numeric',
+            'date' => 'date',
+            'phone' => 'numeric',
+            'web' => 'string',
+            'address' => 'string'
         ];
     }
 
-    public function messages(): array{
-        \\
+    public function messages()
+    {
+        return [
+            'name.string' => 'Please enter the correct name',
+            'name.max' => 'The name cannot exceed 255 characters',
+            'name.required' => 'The name field is required',
+            'age.numeric' => 'Please enter the correct age',
+            'date.date' => 'Please enter a valid date',
+            'phone.numeric' => 'Please check the phone number again',
+            'web.string' => 'Please check the character again',
+            'address.string' => 'Please enter address again'
+        ];
     }
 }
