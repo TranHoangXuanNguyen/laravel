@@ -4,6 +4,9 @@ use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\CaculateController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TestApiController;
+
+
 
 
 
@@ -21,9 +24,13 @@ Route::get('/caculate', function () {
 Route::post('/caculate', [CaculateController::class, 'caculate']);
 Route::get('/blablabla', [ExampleController::class, 'index']);
 Route::get('/blablabla1', [ExampleController::class, 'index2']);
+Route::get('/api', [TestApiController::class, 'index']);
+
+
+
 
 
 Route::resource('blabla', PostController::class);
 
 Route::get('/students', [StudentController::class, 'index']);
-Route::post('/students', [StudentController::class, 'displayInfor']);
+Route::post('/students', [StudentController::class, 'storeData']);

@@ -37,26 +37,25 @@
                     </div>
                     <button class="btn" type="submit">OK</button>
 
-                          
+
               <div>
-                 @include ('blocks.error')
+                 @include ('blocks.error')S
               </div>
 
               <div class="display-infor">
-                    @if (isset($students))
-                            <p>Name: {{$students['name'] }}</p>
-                            <p>Address: {{ $students['address']}}</p>
-                            <p>Phone Number: {{ $students['phone'] }}</p>
-                            <p>Age: {{ $students['age']}}</p>
-                            <p>Website: {{ $students['web']}}</p>
-                            <p>Date: {{ $students['date'] }}</p>
-                    @endif
+                  @if(session()->has('students'))
+                      <ul>
+                          @foreach(session('students') as $item)
+                              <li>{{ $item['name'] }}</li>
+                          @endforeach
+                      </ul>
+                  @endif
               </div>
-               
+
 
             </div>
-         
+
         </form>
-        
+
 </body>
 </html>

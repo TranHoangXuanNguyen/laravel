@@ -15,21 +15,19 @@ class StudentController extends Controller
     {
         return view('students');
     }
-
-
-    public function displayInfor(RuleInserStudent $studentsRequest)
+    public function storeData(RuleInserStudent $studentsRequest)
     {
-        $students = [
-            'name' => $name = $studentsRequest->input("name"),
+        $students = session()->get('students', []); // Lấy session, nếu chưa có thì trả về mảng rỗng
+        $students[] = ['name' => $name = $studentsRequest->input("name"),
             'age' => $age = $studentsRequest->input('age'),
             'date' => $date = $studentsRequest->input('date'),
             'phone' => $phone = $studentsRequest->input('phone'),
             'web' => $web = $studentsRequest->input('web'),
-            'address' => $address = $studentsRequest->input('address')
-        ];
-        return view('students')->with('students', $students);
-    }
+            'address' => $address = $studentsRequest->input('address')]; // Thêm sản phẩm mới
+        session()->put('studentsS', $students);
 
+        return view('students');
+    }
     /**
      * Show the form for creating a new resource.
      */
