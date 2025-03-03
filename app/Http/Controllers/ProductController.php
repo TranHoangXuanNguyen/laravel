@@ -9,8 +9,9 @@ class ProductController extends Controller
 {
     private $apiUrl = "https://656ca88ee1e03bfd572e9c16.mockapi.io/products";
 
+
     public function index(){
-        $response = Http::get($this->apiUrl);
+        $response = Http::timeout(30)->get($this->apiUrl);
         $products = $response->json();
         return view('products.index', compact('products'));
     }
