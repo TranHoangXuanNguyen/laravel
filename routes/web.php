@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 
 
-
+use App\Http\Controllers\CreatetableController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\ProductsController;
@@ -48,6 +48,8 @@ Route::get('/init', function (){
 
 Route::get('/initDb', [DatabaseController::class, 'CreateDatabase']);
 
+
+Route::get('/createtable',[CreatetableController::class,'table']);
 
 
 
