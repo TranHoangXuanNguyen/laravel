@@ -13,6 +13,8 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestApiController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopeeController;
+use App\Http\Controllers\PageController;
+
 
 
 Route::get('/', function () {
@@ -50,6 +52,9 @@ Route::get('/initDb', [DatabaseController::class, 'CreateDatabase']);
 
 
 Route::get('/createtable',[CreatetableController::class,'table']);
+
+Route::get('/trangchu',[PageController::class,'index']);
+
 
 
 
