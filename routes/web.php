@@ -58,3 +58,26 @@ Route::get('/trangchu',[PageController::class,'index']);
 
 
 
+
+Route::get('/type/{id}', [PageController::class, 'getLoaiSp']);
+Route::get('/type/{id}', [PageController::class, 'getLoaiSp']);
+
+Route::get('/contract',[PageController::class,'getContract']);
+Route::get('/about',[PageController::class,'getAbout']);
+
+Route::get('/detail/{id}',[PageController::class,'getDetail']);
+
+
+Route::get('/admin', [PageController::class, 'getIndexAdmin']);
+Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');
+Route::post('/admin-add-form', [PageController::class, 'postAdmin']);
+Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);
+Route::post('admin-edit', [PageController::class, 'postAdminEdit'])->name('admin.edit');
+Route::post('/admin-delete/{id}', [PageController::class, 'postAdminDelete']);
+
+Route::get('/about', function(){
+    return view('pages.about');
+});
+Route::get('/contact', function(){
+    return view('pages.lienhe');
+});
